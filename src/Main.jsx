@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Log from './pages/Log'
 import Login from './pages/Login'
 import Profile from './pages/Profile'
+import Submission from './pages/Submission'
 
 export default function Main() {
     return (
@@ -14,6 +15,7 @@ export default function Main() {
             <Route path='/test' element={<Log/>} />
             <Route path="/profile" element={<Profile/>} />
             <Route path="/discussion" element={<Discussion/>} />
+            <Route path="/submission" element={<Submission/>} />
         </Routes>
     )
 }

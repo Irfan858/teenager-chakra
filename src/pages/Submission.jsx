@@ -3,25 +3,23 @@ import { Box, Flex, Stack, VStack, Text, Spacer, Button } from '@chakra-ui/react
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 // import CourseCard from '../components/CourseCard'
-// import SubmissionCard from '../components/SubmissionCard'
-import DiscussionCard from '../components/DiscussionCard'
+import SubmissionCard from '../components/SubmissionCard'
+// import DiscussionCard from '../components/DiscussionCard'
 
-let discussionList = [
+let submissionList = [
     {
-        id: 1,
-        title: "Apa Saja Struktur Bumi",
-        module: "Geografi",
-        class: "X IPS"
+      id: 1,
+      name: "Matematika 1",
+      status: true
     },
     {
-        id: 2,
-        title: "Menentukan Asam Basa",
-        module: "Kimia",
-        class: "X IPA"
-    }
-]
+      id: 1,
+      name: "Matematika 2",
+      status: false
+    },
+  ]
 
-export default function Discussion() {
+export default function Submission() {
     return (
         <>
             <Navbar />
@@ -38,10 +36,10 @@ export default function Discussion() {
                             {/* Header */}
                             <Box>
                                 <Box as="h1" fontSize="2xl" fontWeight="semibold">
-                                    Diskusi
+                                    Tugas
                                 </Box>
                                 <Box as="span" fontSize="l" fontWeight="semibold" color="grey">
-                                    Tanyakan Dan Temukan Jawaban pertanyaan Anda Bersama Teman yang Lain
+                                    Kerjakan Tugas anda dan dapatkan Nilai Terbaik dari Guru Anda
                                 </Box>
                             </Box>
                             {/* End Header */}
@@ -49,8 +47,8 @@ export default function Discussion() {
                             <Box alignContent="flex-start">
                                 <VStack spacing={8}>
                                     {
-                                        discussionList.map((discussion, index) => {
-                                            return <DiscussionCard key={index} title={discussion.title} module={discussion.module} moduleClass={discussion.class} />
+                                        submissionList.map((submission, index) => {
+                                            return <SubmissionCard key={index} name={submission.name} status={submission.status} />
                                         })
                                     }
                                 </VStack>

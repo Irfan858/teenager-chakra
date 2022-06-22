@@ -122,7 +122,7 @@ export default function Home() {
                   <Stack mt={4} spacing={3}>
                     {
                       discussionList.map((discussion, index) => {
-                        return <DiscussionCard key={index} title={discussion.title} module={discussion.module} moduleClass={discussion.class}/>
+                        return <DiscussionCard key={index} title={discussion.title} module={discussion.module} moduleClass={discussion.class} />
                       })
                     }
                   </Stack>
