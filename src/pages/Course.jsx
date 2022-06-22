@@ -1,5 +1,6 @@
-import React from 'react'
-import { Box, Flex, Stack, HStack, Text, Spacer, Button } from '@chakra-ui/react';
+import React from 'react';
+import { Box, Flex, Stack, HStack, Text, Spacer, Button, Grid, MenuButton, MenuList, MenuItem, Menu } from '@chakra-ui/react';
+import { ChevronDownIcon, ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
 import CourseCard from '../components/CourseCard';
@@ -25,6 +26,62 @@ export default function Course() {
       name: 'Matematika',
       class: 'XII TKJ',
       description: 'Mata Pelajaran yang akan membahas Konversi Biner, Aljabar ',
+      percent: 60,
+    },
+    {
+      id: 4,
+      name: 'Geografi',
+      class: 'XI IPS',
+      description: 'Mempelajari tentang Struktur Bumi',
+      percent: 60,
+    },
+    {
+      id: 5,
+      name: 'Matematika',
+      class: 'XII IPA',
+      description: 'Mata Pelajaran yang akan membahas Konversi Biner, Aljabar ',
+      percent: 60,
+    },
+    {
+      id: 6,
+      name: 'Sosiologi',
+      class: 'XI IPS',
+      description: 'Mata Pelajaran yang akan membahas Stratifikasi Sosial ',
+      percent: 60,
+    },
+    {
+      id: 7,
+      name: 'Ekonomi',
+      class: 'XII IPS',
+      description: 'Mata Pelajaran yang akan membahas Akuntansi',
+      percent: 60,
+    },
+    {
+      id: 8,
+      name: 'Biologi',
+      class: 'XII IPA',
+      description: 'Mata Pelajaran yang akan membahas Virus dan Bakteri ',
+      percent: 60,
+    },
+    {
+      id: 9,
+      name: 'Fisika',
+      class: 'XII IPA',
+      description: 'Mata Pelajaran yang akan membahas Hukum Pascal',
+      percent: 60,
+    },
+    {
+      id: 10,
+      name: 'Kimia',
+      class: 'XII IPA',
+      description: 'Mata Pelajaran yang akan membahas Biomolekul ',
+      percent: 60,
+    },
+    {
+      id: 11,
+      name: 'Agama',
+      class: 'XII IPA/IPS',
+      description: 'Mata Pelajaran yang akan membahas Biomolekul ',
       percent: 60,
     },
   ];
@@ -59,19 +116,35 @@ export default function Course() {
                   Pelajaran Anda
                 </Box>
                 <Spacer />
-                <Button colorScheme="blue" size="md" variant="ghost">
-                  Lihat Semua
-                </Button>
+                <Menu>
+                  <MenuButton px={4} py={2} transition="all 0.2s" borderRadius="md" borderWidth="1px" _hover={{ bg: 'gray.400' }} _expanded={{ bg: 'blue.400' }} _focus={{ boxShadow: 'outline' }}>
+                    Kelas <ChevronDownIcon />
+                  </MenuButton>
+                  <MenuList>
+                    <MenuItem>X SMA</MenuItem>
+                    <MenuItem>XI SMA</MenuItem>
+                    <MenuItem>XII SMA</MenuItem>
+                  </MenuList>
+                </Menu>
               </Flex>
               <Box alignContent="flex-start">
-                <HStack spacing={8}>
+                <Grid spacing={8} templateColumns="repeat(4, 1fr)" gap={6}>
                   {moduleList.map((module, index) => {
                     return <CourseCard key={index} name={module.name} className={module.class} description={module.description} percent={module.percent} />;
                   })}
-                </HStack>
+                </Grid>
               </Box>
               {/* End Content */}
             </Stack>
+            <Flex minWidth="max-content" alignItems="center" gap="2" mt={4}>
+              <Button leftIcon={<ArrowBackIcon />} colorScheme="blue">
+                Previous
+              </Button>
+              <Spacer />
+              <Button rightIcon={<ArrowForwardIcon />} colorScheme="blue">
+                Next
+              </Button>
+            </Flex>
           </Box>
         </Flex>
         {/* End main */}
