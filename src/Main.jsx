@@ -15,7 +15,7 @@ export default function Main() {
       <Route path="/test" element={<Log />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/discussion" element={<Discussion />} />
-      <Route pat="/course" element={<Course />} />
+      <Route path="/course" element={<Course/>} /> 
     </Routes>
   );
 }

@@ -1,11 +1,10 @@
-import React from 'react';
+import React from 'react'
 import { Box, Flex, Stack, HStack, Text, Spacer, Button } from '@chakra-ui/react';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
 import CourseCard from '../components/CourseCard';
-import SubmissionCard from '../components/SubmissionCard';
-import DiscussionCard from '../components/DiscussionCard';
-export default function Home() {
+
+export default function Course() {
   let moduleList = [
     {
       id: 1,
@@ -30,33 +29,6 @@ export default function Home() {
     },
   ];
 
-  let submissionList = [
-    {
-      id: 1,
-      name: 'Matematika 1',
-      status: true,
-    },
-    {
-      id: 1,
-      name: 'Matematika 2',
-      status: false,
-    },
-  ];
-
-  let discussionList = [
-    {
-      id: 1,
-      title: 'Apa Saja Struktur Bumi',
-      module: 'Geografi',
-      class: 'X IPS',
-    },
-    {
-      id: 2,
-      title: 'Menentukan Asam Basa',
-      module: 'Kimia',
-      class: 'X IPA',
-    },
-  ];
   return (
     <>
       {/* Navbar */}
@@ -98,40 +70,6 @@ export default function Home() {
                   })}
                 </HStack>
               </Box>
-              <HStack spacing={3}>
-                <Box p={5} width="50%" bgColor="white" height="60vh" boxShadow="lg" borderRadius="10">
-                  <Flex>
-                    <Text as="span" fontSize="xl" fontWeight="semibold">
-                      Tugas
-                    </Text>
-                    <Spacer />
-                    <Button colorScheme="blue" size="md" variant="ghost">
-                      Lihat Semua
-                    </Button>
-                  </Flex>
-                  <Stack mt="4" spacing={3}>
-                    {submissionList.map((submission, index) => {
-                      return <SubmissionCard key={index} name={submission.name} status={submission.status} />;
-                    })}
-                  </Stack>
-                </Box>
-                <Box p={5} width="50%" bgColor="gray.100" height="60vh" boxShadow="lg" borderRadius="10">
-                  <Flex>
-                    <Text as="span" fontSize="xl" fontWeight="semibold">
-                      Diskusi
-                    </Text>
-                    <Spacer />
-                    <Button colorScheme="blue" size="md" variant="ghost">
-                      Lihat Semua
-                    </Button>
-                  </Flex>
-                  <Stack mt={4} spacing={3}>
-                    {discussionList.map((discussion, index) => {
-                      return <DiscussionCard key={index} title={discussion.title} module={discussion.module} moduleClass={discussion.class} />;
-                    })}
-                  </Stack>
-                </Box>
-              </HStack>
               {/* End Content */}
             </Stack>
           </Box>
