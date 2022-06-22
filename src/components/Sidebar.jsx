@@ -31,6 +31,13 @@ export default function Sidebar() {
                         </AccordionButton>
                         {/* Acccordion Panel */}
                         <AccordionPanel ml={5}>
+                        <Button variant="ghost" colorScheme="blue" width="full" justifyContent="start">
+                                <HStack spacing={3}>
+                                    <Box as='span' fontWeight='semibold'>
+                                        Manajemen Materi
+                                    </Box>
+                                </HStack>
+                            </Button>
                             <Button variant="ghost" colorScheme="blue" width="full" justifyContent="start">
                                 <HStack spacing={3}>
                                     <Box as='span' fontWeight='semibold'>
@@ -41,7 +48,7 @@ export default function Sidebar() {
                             <Button variant="ghost" colorScheme="blue" width="full" justifyContent="start">
                                 <HStack spacing={3}>
                                     <Box as='span' fontWeight='semibold'>
-                                        Tugas  
+                                        Tugas
                                     </Box>
                                 </HStack>
                             </Button>
@@ -71,6 +78,13 @@ export default function Sidebar() {
                         </AccordionButton>
                         {/* Acccordion Panel */}
                         <AccordionPanel ml={5}>
+                            <Button variant="ghost" colorScheme="blue" width="full" justifyContent="start">
+                                <HStack spacing={3}>
+                                    <Box as='span' fontWeight='semibold'>
+                                        Manajemen User
+                                    </Box>
+                                </HStack>
+                            </Button>
                             <Button variant="ghost" colorScheme="blue" width="full" justifyContent="start">
                                 <HStack spacing={3}>
                                     <Box as='span' fontWeight='semibold'>

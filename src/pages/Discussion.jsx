@@ -46,7 +46,8 @@ export default function Discussion() {
                             </Box>
                             {/* End Header */}
                             {/* Content */}
-                            <Box alignContent="flex-start">
+                            <Button colorScheme="blue" variant="solid" width="full">Tambah Diskusi</Button>
+                            <Box alignContent="flex-start" >
                                 <VStack spacing={8}>
                                     {
                                         discussionList.map((discussion, index) => {

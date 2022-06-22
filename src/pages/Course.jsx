@@ -128,7 +128,7 @@ export default function Course() {
                 </Menu>
               </Flex>
               <Box alignContent="flex-start">
-                <Grid spacing={8} templateColumns="repeat(4, 1fr)" gap={6}>
+                <Grid spacing={8} templateColumns="repeat(3, 1fr)" gap={6}>
                   {moduleList.map((module, index) => {
                     return <CourseCard key={index} name={module.name} className={module.class} description={module.description} percent={module.percent} />;
                   })}
