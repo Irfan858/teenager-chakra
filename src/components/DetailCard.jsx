@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function DetailCard({ name, className, description }) {
   return (
-    <Box p={6} shadow="md" borderWidth="1px" w={900} h={450} borderRadius={10}>
+    <Box p={6} shadow="md" borderWidth="1px" w={950} h={350} borderRadius={10}>
       <Stack spacing={3} height={36}>
         <Heading fontSize="4xl">{name}</Heading>
         <HStack spacing={3} mt={4}>
@@ -16,9 +16,6 @@ export default function DetailCard({ name, className, description }) {
           {description}
         </Text>
       </Stack>
-      <Button mt="200px" colorScheme="blue" width="full" bottom={2}>
-        Lanjutkan
-      </Button>
     </Box>
   );
 }
