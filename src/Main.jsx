@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Course from './pages/Course';
+import CourseDetail from './pages/CourseDetail';
 import Discussion from './pages/Discussion';
 import Home from './pages/Home';
 import Log from './pages/Log';
@@ -16,8 +17,8 @@ export default function Main() {
       <Route path="/test" element={<Log />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/discussion" element={<Discussion />} />
-      <Route path="/course" element={<Course/>} /> 
-      <Route path = "/submission" element={<Submission/>}/>
+      <Route path="/course" element={<Course />} />
+      <Route path="/coursedetail" element={<CourseDetail />} />
     </Routes>
   );
 }
