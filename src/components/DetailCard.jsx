@@ -3,9 +3,9 @@ import React from 'react';
 
 export default function DetailCard({ name, className, description }) {
   return (
-    <Box p={6} shadow="md" borderWidth="1px" w={950} h={350} borderRadius={10}>
+    <Box m={4} p={6} shadow="md" borderWidth="1px" w={950} h={350} borderRadius={10}>
       <Stack spacing={3} height={36}>
-        <Heading fontSize="4xl">{name}</Heading>
+        <Heading fontSize="6xl">{name}</Heading>
         <HStack spacing={3} mt={4}>
           {/* <Text fontWeight="semibold" color="grey">{courseTeacher}</Text> */}
           <Text fontWeight="semibold" color="blue.200">
