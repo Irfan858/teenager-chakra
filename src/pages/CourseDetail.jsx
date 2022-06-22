@@ -4,7 +4,7 @@ import { ChevronDownIcon, ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/ico
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
 import DetailCard from '../components/DetailCard';
-import CourseCard from '../components/CourseCard';
+import ListModule from '../components/ListModule';
 
 export default function CourseDetail() {
   let moduleDetail = [
@@ -14,6 +14,23 @@ export default function CourseDetail() {
       class: 'XI RPL',
       description:
         'Pemrograman web terbentuk atas 2 kata yaitu pemrograman dan web dimana pemrograman sendiri adalah Proses atau Cara dalam menjalankan sebuah urutan intruksi atau perintah yang diberikan kepada komputer untuk membuat fungsi atau tugas tertentu. dan Web adalah Sistem untuk mengakses, memanipulasi, dan mengunduh dokumen yang terdapat pada komputer yang di hubungkan melalui internet atau jaringan.Jadi Pemrograman Web adalah Proses atau Cara untuk menjalankan intruksi pada sebuah komputer yang terhubung ke internet untuk membuat fungsi atau tugas tertentu.',
+    },
+  ];
+  let listModule = [
+    {
+      id: 1,
+      name: 'Pemrograman Web 1',
+      list: 'HTML',
+    },
+    {
+      id: 2,
+      name: 'Pemrograman Web 2',
+      list: 'CSS',
+    },
+    {
+      id: 3,
+      name: 'Pemrograman Web 3',
+      list: 'Layout Responsif Menggunakan Flexbox',
     },
   ];
   return (
@@ -36,12 +53,14 @@ export default function CourseDetail() {
                       return <DetailCard key={index} name={module.name} className={module.class} description={module.description} />;
                     })}
                   </Box>
-                  <Box p={6} ml={4} shadow="md" borderWidth="1px" w={450} h={350} borderRadius={10}>
-                    <Stack spacing={3}>
-                      <Text fontSize="3xl">Silahkan masuk dan Pelajari</Text>
-                      <Button mt={5} colorScheme="blue" width="full" bottom={2}>
-                        Masuk
-                      </Button>
+                  <Box p={6} ml={4} shadow="md" borderWidth="1px" w={550} h={350} borderRadius={10}>
+                    <Stack mt="4" spacing={3}>
+                      <Text fontWeight="semibold" fontSize="xl" mt={4}>
+                        Modul :
+                      </Text>
+                      {listModule.map((submission, index) => {
+                        return <ListModule key={index} name={submission.name} list={submission.list} />;
+                      })}
                     </Stack>
                   </Box>
                 </HStack>
