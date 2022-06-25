@@ -8,7 +8,7 @@ export default function AnswerCard({ answer }) {
         <Flex direction="column" alignContent="center" mt={20} width="full">
           <HStack>
             <Avatar name="Irfan Kurniawan" src="https://bit.ly/dan-abramov" mr={4} w={10} h={10} />
-            <Input size="lg" maxWidth="auto" variant="flushed" placeholder="Flushed" />
+            <Input size="lg" maxWidth="auto" variant="flushed" placeholder="Jawab" />
             <Spacer />
             <Button>Insert</Button>
             <Button>Cancel</Button>
