@@ -44,8 +44,18 @@ export default function CourseDetail() {
         </Flex>
         {/* End Sidebar */}
         <Flex width="80%" minHeight="90vh" bg="white" position="sticky" left="80" marginTop={20}>
+          <Box p={6} ml={4} shadow="md" borderWidth="1px" w={550} h={350} borderRadius={10}>
+            <Stack mt="4" spacing={3}>
+              <Text fontWeight="semibold" fontSize="xl" mt={4}>
+                Modul :
+              </Text>
+              {listModule.map((submission, index) => {
+                return <ListModule key={index} name={submission.name} list={submission.list} />;
+              })}
+            </Stack>
+          </Box>
           <Box m={5}>
-            <Stack spacing={6}>
+            <Stack spacing={6} >
               <Box alignContent="flex-start">
                 <HStack spacing={20}>
                   <Box>
@@ -53,19 +63,9 @@ export default function CourseDetail() {
                       return <DetailCard key={index} name={module.name} className={module.class} description={module.description} />;
                     })}
                   </Box>
-                  <Box p={6} ml={4} shadow="md" borderWidth="1px" w={550} h={350} borderRadius={10}>
-                    <Stack mt="4" spacing={3}>
-                      <Text fontWeight="semibold" fontSize="xl" mt={4}>
-                        Modul :
-                      </Text>
-                      {listModule.map((submission, index) => {
-                        return <ListModule key={index} name={submission.name} list={submission.list} />;
-                      })}
-                    </Stack>
-                  </Box>
                 </HStack>
               </Box>
-              <Box p={6} m={4} shadow="md" borderWidth="1px" w={950} h={750} borderRadius={10}>
+              <Box p={6} m={4} shadow="md" borderWidth="1px" w="60%" h={750} borderRadius={10}>
                 <Text fontWeight="semibold" fontSize="xl" mt={4}>
                   Tentang Pelajaran :
                 </Text>

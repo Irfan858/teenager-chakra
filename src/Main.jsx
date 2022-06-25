@@ -1,5 +1,8 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import AdminCourseDetail from './pages/AdminCourseDetail';
+import AdminCourseList from './pages/AdminCourseList';
+import AdminUserList from './pages/AdminUserList';
 import Course from './pages/Course';
 import CourseDetail from './pages/CourseDetail';
 import Discussion from './pages/Discussion';
@@ -19,6 +22,11 @@ export default function Main() {
       <Route path="/discussion" element={<Discussion />} />
       <Route path="/course" element={<Course />} />
       <Route path="/coursedetail" element={<CourseDetail />} />
+
+      {/* Admin */}
+      <Route path='/admin-user-list' element={<AdminUserList/>}/>
+      <Route path='/admin-course-list' element={<AdminCourseList/>}/>
+      <Route path='/admin-course-detail' element={<AdminCourseDetail/>} />
     </Routes>
   );
 }
