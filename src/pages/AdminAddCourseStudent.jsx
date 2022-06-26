@@ -16,12 +16,27 @@ import {
     Td,
     TableCaption,
     TableContainer,
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+    useDisclosure,
+    InputLeftElement,
+    InputGroup,
+    Input,
+    Avatar
 } from '@chakra-ui/react'
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import { MdStackedBarChart } from 'react-icons/md'
+import { SearchIcon } from '@chakra-ui/icons'
 
-export default function AdminCourseDetail() {
+export default function AdminAddCourseStudent() {
+    const { isOpen, onOpen, onClose } = useDisclosure()
+
     let num = 1
     let courseDetail = [
         {
@@ -32,13 +47,15 @@ export default function AdminCourseDetail() {
         }
     ]
 
-    let moduleList = [
+    let studentList = [
         {
             id: 1,
-            title: "Pengenalan Teks Prosedur",
-            content: "A. Mengonstruksi Informasi dalam Teks Prosedur \n Menunjukkan Pernyataan Umum dalam Suatu Kegiatan \n  Seseorang melakukan suatu kegiatan tentu saja harus memperhatikan langkah-langkah mengerjakannya. Apabila kita akan melakukan pekerjaan, maka harus memahami langkah-langkahnya agar hasil kegiatan tersebut berhasil dengan baik. Ciri teks prosedur yaitu terdapat bagian pernyataan umum dan tahapan-tahapan melakukan kegiatan"
+            name: "Irfan Kurniawan"
         },
-
+        {
+            id: 2,
+            name: "Amellisa Anggun Oktadilla"
+        }
     ]
 
     return (
@@ -57,7 +74,7 @@ export default function AdminCourseDetail() {
                         <Stack spacing={6}>
                             {/* Header */}
                             <Box as="h1" fontSize="3xl" fontWeight="semibold">
-                                Detail Materi
+                                Daftar Siswa
                             </Box>
                             <Box>
                                 {
@@ -82,8 +99,7 @@ export default function AdminCourseDetail() {
                             {/* End Header */}
                             {/* Content */}
                             <Stack direction="row">
-                            <Button variant="solid" colorScheme="green" width="30%">Tambah Siswa</Button>
-                            <Button variant="solid" colorScheme="green" width="30%">Tambah Materi</Button>
+                                <Button variant="solid" colorScheme="green" width="30%" onClick={onOpen}>Tambah Siswa</Button>
                             </Stack>
                             <Box>
                                 <TableContainer>
@@ -91,23 +107,20 @@ export default function AdminCourseDetail() {
                                         <Thead>
                                             <Tr>
                                                 <Th>No</Th>
-                                                <Th>Judul Materi</Th>
-                                                <Th>Isi Materi</Th>
+                                                <Th>Nama Siswa</Th>
                                                 <Th>Aksi</Th>
                                             </Tr>
                                         </Thead>
                                         {
                                             <Tbody>
                                                 {
-                                                    moduleList.map((module) => {
+                                                    studentList.map((student, index) => {
                                                         return (
-                                                            <Tr>
+                                                            <Tr key={index}>
                                                                 <Td>{num++}</Td>
-                                                                <Td>{module.title}</Td>
-                                                                <Td>{`${module.content.substring(0, 30)}`}</Td>
+                                                                <Td>{student.name}</Td>
                                                                 <Td>
                                                                     <Stack direction="row" spacing={3}>
-                                                                        <Button variant="solid" colorScheme="blue" size="sm">Edit</Button>
                                                                         <Button variant="solid" colorScheme="red" size="sm">Hapus</Button>
                                                                     </Stack>
                                                                 </Td>
@@ -126,6 +139,40 @@ export default function AdminCourseDetail() {
                     </Box>
                 </Flex>
                 {/* End main */}
+
+                {/* Modal */}
+                <Modal isOpen={isOpen} onClose={onClose}>
+                    <ModalOverlay />
+                    <ModalContent>
+                        <ModalHeader>Tambah Siswa</ModalHeader>
+                        <ModalCloseButton />
+                        <ModalBody>
+                            <Box>
+                                <InputGroup>
+                                    <InputLeftElement
+                                        pointerEvents='none'
+                                        children={<SearchIcon color='gray.300' />}
+                                    />
+                                    <Input type='tel' placeholder='Cari' />
+                                </InputGroup>
+                            </Box>
+                            <Box my={4} p={2} border="2px" borderColor='gray.200' borderRadius={5}>
+                                <Stack direction="row" alignItems="center">
+                                    <Avatar name="Irfan Kurniawan" width={10} height={10} />
+                                    <Text>Irfan Kurniawan</Text>
+                                </Stack>
+                            </Box>
+                        </ModalBody>
+
+                        <ModalFooter>
+                            <Button colorScheme='blue' mr={3} onClick={onClose}>
+                                Tambah Data
+                            </Button>
+                            <Button onClick={onClose}>Cancel</Button>
+                        </ModalFooter>
+                    </ModalContent>
+                </Modal>
+                {/* End Modal */}
             </Flex>
         </ >
     )
