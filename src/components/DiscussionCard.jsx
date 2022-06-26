@@ -3,6 +3,7 @@ import {
   Box,
   Flex,
   Stack,
+  HStack,
   Text,
   Spacer,
   Button,
@@ -23,6 +24,7 @@ import {
   AccordionPanel,
   AccordionIcon,
   Input,
+  Avatar,
 } from '@chakra-ui/react';
 
 export default function DiscussionCard({ question, module, moduleClass, answerNum, answer }) {
@@ -45,7 +47,8 @@ export default function DiscussionCard({ question, module, moduleClass, answerNu
           </Stack>
         </Flex>
         <Spacer />
-        <Button onClick={onOpen} mt={3} colorScheme="gray" size="sm" variant="solid">
+        <Button>lihat Semua</Button>
+        {/* <Button onClick={onOpen} mt={3} colorScheme="gray" size="sm" variant="solid">
           Answer
         </Button>
         <Modal initialFocusRef={initialRef} isOpen={isOpen} onClose={onClose}>
@@ -71,9 +74,9 @@ export default function DiscussionCard({ question, module, moduleClass, answerNu
               <Button onClick={onClose}>Batal</Button>
             </ModalFooter>
           </ModalContent>
-        </Modal>
+        </Modal> */}
       </Flex>
-      <Box>
+      {/* <Box>
         <Accordion allowToggle>
           <AccordionItem>
             <h2>
@@ -87,7 +90,17 @@ export default function DiscussionCard({ question, module, moduleClass, answerNu
             <AccordionPanel pb={4}>{answer}</AccordionPanel>
           </AccordionItem>
         </Accordion>
-      </Box>
+      </Box> */}
+      {/* <Flex width="full" mt={4}>
+        <Avatar name="Irfan Kurniawan" src="https://bit.ly/dan-abramov" mr={4} w={10} h={10} />
+        <Stack>
+          <Input size="md" variant="flushed" placeholder="Jawab" />
+        </Stack>
+        <Spacer />
+        <Button colorScheme="blue" mr={3}>
+          Tambah
+        </Button>
+      </Flex> */}
     </Box>
   );
 }

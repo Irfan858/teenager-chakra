@@ -56,7 +56,7 @@ export default function Discussion() {
               </Box>
               {/* End Header */}
               {/* Content */}
-              <Button onClick={onOpen} colorScheme="blue" variant="solid" width="full">
+              {/* <Button onClick={onOpen} colorScheme="blue" variant="solid" width="full">
                 Tambah Diskusi
               </Button>
               <Modal initialFocusRef={initialRef} isOpen={isOpen} onClose={onClose}>
@@ -88,7 +88,7 @@ export default function Discussion() {
                     <Button onClick={onClose}>Batal</Button>
                   </ModalFooter>
                 </ModalContent>
-              </Modal>
+              </Modal> */}
               <Box alignContent="flex-start">
                 <VStack spacing={8}>
                   {discussionList.map((discussion, index) => {
