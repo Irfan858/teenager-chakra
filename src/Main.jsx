@@ -14,7 +14,6 @@ import Answer from './pages/Answer';
 import Submission from './pages/Submission';
 import AdminAddCourseStudent from './pages/AdminAddCourseStudent';
 import AdminAddCourseModule from './pages/AdminAddCourseModule';
-import Ckeditor from './pages/Ckeditor';
 
 export default function Main() {
   return (
@@ -32,7 +31,6 @@ export default function Main() {
       <Route path = "/admin-course-student" element={<AdminAddCourseStudent/>}/>
       <Route path = "/admin-course-add-module" element={<AdminAddCourseModule/>}/>
       <Route path = "/admin-user-list" element={<AdminUserList/>}/>
-      <Route path='/ckeditor' element={<Ckeditor />} />
     </Routes>
   );
 }

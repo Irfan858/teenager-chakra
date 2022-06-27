@@ -1,47 +1,27 @@
-import React from 'react'
+import React, { useRef } from 'react';
 import {
     Box,
     Flex,
     Stack,
-    HStack,
     Text,
-    Spacer,
     Button,
-    Table,
-    Thead,
-    Tbody,
-    Tfoot,
-    Tr,
-    Th,
-    Td,
-    TableCaption,
-    TableContainer,
+    Input
+
 } from '@chakra-ui/react'
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import { MdStackedBarChart } from 'react-icons/md'
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { Editor } from '@tinymce/tinymce-react';
 
 export default function AdminAddCourseModule() {
-    let num = 1
-    let courseDetail = [
-        {
-            id: 1,
-            name: "Bahasa Indonesia",
-            class: "XI Bahasa",
-            description: "Pada Kelas Ini akan Mempelajari tentang Menyusun Prosedur, Teks Eksplanasi, Mengelola Informasi dan lainnya",
+
+    const editorRef = useRef(null);
+    const log = () => {
+        if (editorRef.current) {
+            console.log(editorRef.current.getContent());
         }
-    ]
+    };
 
-    let moduleList = [
-        {
-            id: 1,
-            title: "Pengenalan Teks Prosedur",
-            content: "A. Mengonstruksi Informasi dalam Teks Prosedur \n Menunjukkan Pernyataan Umum dalam Suatu Kegiatan \n  Seseorang melakukan suatu kegiatan tentu saja harus memperhatikan langkah-langkah mengerjakannya. Apabila kita akan melakukan pekerjaan, maka harus memahami langkah-langkahnya agar hasil kegiatan tersebut berhasil dengan baik. Ciri teks prosedur yaitu terdapat bagian pernyataan umum dan tahapan-tahapan melakukan kegiatan"
-        },
-
-    ]
 
     return (
         <>
@@ -64,23 +44,30 @@ export default function AdminAddCourseModule() {
                             {/* End Header */}
                             {/* Content */}
                             <Box>
-                                <Stack direction="column">
+                                <Stack direction="column" spacing={3}>
                                     <Text as="h2" fontSize="xl" fontWeight='semibold'>Judul Materi</Text>
+                                    <Input placeholder='Masukkan Judul Materi Anda Di Sini' />
                                     <Text as="h2" fontSize="xl" fontWeight='semibold'>Isi Materi</Text>
-                                    <Box p={4}>
-                                        <CKEditor
-                                            editor={ClassicEditor}
-                                            data="<p>Hello from CKEditor 5!</p>"
-                                            onReady={editor => {
-                                                // You can store the "editor" and use when it is needed.
-                                                console.log('Editor is ready to use!', editor);
-                                            }}
-                                            onChange={(event, editor) => {
-                                                const data = editor.getData();
-                                                console.log({ event, editor, data });
-                                            }}
-                                        />
-                                    </Box>
+                                    <Editor
+                                        apiKey='hjoe212eg1j17e47oon829pkkrldrjd0pgxy67rc98fpflgd'
+                                        onInit={(evt, editor) => editorRef.current = editor}
+                                        initialValue="<p>Silahkan Tambahkan Materi Anda Di Sini.</p>"
+                                        init={{
+                                            height: 500,
+                                            menubar: false,
+                                            plugins: [
+                                                'advlist autolink lists link image charmap print preview anchor',
+                                                'searchreplace visualblocks code fullscreen',
+                                                'insertdatetime media table paste code help wordcount'
+                                            ],
+                                            toolbar: 'undo redo | styles | formatselect | ' +
+                                                'bold italic backcolor | alignleft aligncenter ' +
+                                                'alignright alignjustify | bullist numlist outdent indent | ' +
+                                                'removeformat | help',
+                                            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+                                        }}
+                                    />
+                                    <Button variant="solid" colorScheme="green" width="30%">Tambahkan Materi</Button>
                                 </Stack>
                             </Box>
                             {/* End Content */}

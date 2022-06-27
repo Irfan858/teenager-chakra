@@ -82,7 +82,6 @@ export default function AdminUserList() {
                             </Box>
                             {/* End Header */}
                             {/* Content */}
-                            <Button variant="solid" colorScheme="green" width="30%">Tambah User</Button>
                             <Box>
                                 <TableContainer>
                                     <Table variant='striped' colorScheme='blue'>
@@ -106,7 +105,7 @@ export default function AdminUserList() {
                                                             <Td>{role_type(user.role)}</Td>
                                                             <Td>
                                                                 <Stack direction="row" spacing={3}>
-                                                                    <Button variant="solid" colorScheme="blue" size="sm">Edit</Button>
+                                                                    <Button variant="solid" colorScheme="blue" size="sm">Ganti Role</Button>
                                                                     <Button variant="solid" colorScheme="red" size="sm">Hapus</Button>
                                                                 </Stack>
                                                             </Td>

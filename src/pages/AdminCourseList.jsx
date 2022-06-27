@@ -16,11 +16,21 @@ import {
     Td,
     TableCaption,
     TableContainer,
+    useDisclosure,
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+    Input,
 } from '@chakra-ui/react'
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 
 export default function AdminCourseList() {
+    const { isOpen, onOpen, onClose } = useDisclosure()
     let num = 1
     let courseList = [
         {
@@ -60,7 +70,7 @@ export default function AdminCourseList() {
                             </Box>
                             {/* End Header */}
                             {/* Content */}
-                            <Button variant="solid" colorScheme="green" width="30%">Tambah Mata Pelajaran</Button>
+                            <Button variant="solid" colorScheme="green" width="30%" onClick={onOpen}>Tambah Mata Pelajaran</Button>
                             <Box>
                                 <TableContainer>
                                     <Table variant='striped' colorScheme='blue'>
@@ -83,7 +93,7 @@ export default function AdminCourseList() {
                                                             <Td>
                                                                 <Stack direction="row" spacing={3}>
                                                                     <Button variant="solid" colorScheme="teal" size="sm">Detail</Button>
-                                                                    <Button variant="solid" colorScheme="blue" size="sm">Edit</Button>
+                                                                    <Button variant="solid" colorScheme="blue" size="sm" onClick={onOpen}>Edit</Button>
                                                                     <Button variant="solid" colorScheme="red" size="sm">Hapus</Button>
                                                                 </Stack>
                                                             </Td>
@@ -91,17 +101,6 @@ export default function AdminCourseList() {
                                                     )
                                                 })
                                             }
-                                            {/* <Tr>
-                                                <Td>Irfan Kurniawan</Td>
-                                                <Td>None</Td>
-                                                <Td>Admin</Td>
-                                                <Td>
-                                                    <Stack direction="row" spacing={3}>
-                                                        <Button variant="solid" colorScheme="blue" size="sm">Edit</Button>
-                                                        <Button variant="solid" colorScheme="red" size="sm">Hapus</Button>
-                                                    </Stack>
-                                                </Td>
-                                            </Tr> */}
                                         </Tbody>
                                     </Table>
                                 </TableContainer>
@@ -111,6 +110,34 @@ export default function AdminCourseList() {
                     </Box>
                 </Flex>
                 {/* End main */}
+                {/* Modal */}
+                <Modal isOpen={isOpen} onClose={onClose}>
+                    <ModalOverlay />
+                    <ModalContent>
+                        <ModalHeader>Tambah Data Mata Pelajaran</ModalHeader>
+                        <ModalCloseButton />
+                        <ModalBody>
+                            <Stack direction="column">
+                                <Text as="h3" fontSize="md" fontWeight="semibold">
+                                    Nama Mata Pelajaran
+                                </Text>
+                                <Input placeholder='Masukkan Nama Mata Pelajaran' />
+                                <Text as="h3" fontSize="md" fontWeight="semibold">
+                                    Kelas
+                                </Text>
+                                <Input placeholder='Masukkan Kelas' />
+                            </Stack>
+                        </ModalBody>
+
+                        <ModalFooter>
+                            <Button colorScheme='blue' mr={3} onClick={onClose}>
+                                Tambah Mata Pelajaran
+                            </Button>
+                            <Button variant='ghost' onClick={onClose}>Cancel</Button>
+                        </ModalFooter>
+                    </ModalContent>
+                </Modal>
+                {/* End Modal */}
             </Flex>
         </ >
     )
